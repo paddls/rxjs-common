@@ -1,6 +1,6 @@
 {
   "name": "@witty-services/rxjs-common",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.4",
   "description": "Type repository core library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,17 +14,21 @@
   "scripts": {
     "clean": "rm -R -f dist",
     "build": "npm run clean && npm run lint && tsc",
+    "build:watch": "tsc -w",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --coverage",
     "test:ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "publish:lib": "npm run build && npm publish --access=public"
   },
-  "author": "Thomas Nisole",
+  "author": "Romain MARTINEAU",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
+    "rxjs": "^6.5.4",
     "typescript": "^3.7.3"
   },
   "devDependencies": {
+    "rxjs": "^6.5.4",
+    "typescript": "^3.7.3",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.17",
     "jest": "^24.9.0",
