@@ -1,0 +1,11 @@
+language: node_js
+
+node_js:
+  - '10.16.0'
+
+before_install:
+  - npm i
+
+script:
+  - npm run lint
+  - npm run test:ci
