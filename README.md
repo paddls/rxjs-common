@@ -48,3 +48,13 @@ buffer.subscribe();
 // should log for both subscription
 -> 'Hey !', 'a'
 ```
+### hardCache()
+### arrayFilter()
+### countSubscription()
+### ifEmpty()
+### ifNotNull()
+### ifNull()
+### ifTruthy()
+### joinArray()
+### toHotArray()
+### wif()
