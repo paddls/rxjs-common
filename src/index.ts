@@ -1,6 +1,12 @@
-export {log} from './operator/log.operator';
-export {countSubscription} from './operator/count-subscription.operator';
-export {softCache} from './operator/soft-cache.operator';
-export {hardCache} from './operator/hard-cache.operator';
-export {isNotNull} from './operator/is-not-null.operator';
-export {isNull} from './operator/is-null.operator';
+export { log } from './operator/log.operator';
+export { countSubscription } from './operator/count-subscription.operator';
+export { softCache } from './operator/soft-cache.operator';
+export { hardCache } from './operator/hard-cache.operator';
+export { ifNotNull } from './operator/if-not-null.operator';
+export { ifNull } from './operator/if-null.operator';
+export { wif } from './operator/wif.operator';
+export { toHotArray } from './operator/to-hot-array.operator';
+export { joinArray } from './operator/join-array.operator';
+export { ifTruthy } from './operator/if-truthy.operator';
+export { ifEmpty } from './operator/if-empty.operator';
+export { arrayFilter } from './operator/array-filter.operator';
