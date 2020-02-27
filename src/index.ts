@@ -10,3 +10,4 @@ export { joinArray } from './operator/join-array.operator';
 export { ifTruthy } from './operator/if-truthy.operator';
 export { ifEmpty } from './operator/if-empty.operator';
 export { arrayFilter } from './operator/array-filter.operator';
+export { onAny } from './operator/on-any.operator';

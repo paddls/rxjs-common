@@ -58,3 +58,4 @@ buffer.subscribe();
 ### joinArray()
 ### toHotArray()
 ### wif()
+### onAny()
