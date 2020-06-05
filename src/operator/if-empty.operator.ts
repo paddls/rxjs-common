@@ -2,7 +2,7 @@ import { merge, Observable, of } from 'rxjs';
 import { filter, isEmpty, switchMapTo } from 'rxjs/operators';
 
 /**
- * return default observable when parent return empty
+ * Return default observable when parent return empty
  * @param value when the observable return empty
  */
 export function ifEmpty<I, O>(value: Observable<O> | O): any {
