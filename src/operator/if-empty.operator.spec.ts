@@ -23,12 +23,45 @@ describe('ifEmpty', () => {
     });
   });
 
-  it('should return 0 cause empty', () => {
+  it('should return 1, 2, 3 cause not empty', () => {
+    testScheduler.run(({expectObservable}: RunHelpers) => {
+      const expectedMarble: string = '(abc|)';
+      const expectedValue: any = {a: 1, b: 2, c: 3};
+      const source$: Observable<number> = from([1, 2, 3]).pipe(
+        ifEmpty(0)
+      );
+      expectObservable(source$).toBe(expectedMarble, expectedValue);
+    });
+  });
+
+  it('should return 1, 2, 3 cause not empty', () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+      const expectedMarble: string = '(abc)';
+      const expectedValue: any = {a: 1, b: 2, c: 3};
+      const source$: Observable<number> = hot(expectedMarble, expectedValue).pipe(
+        ifEmpty(0)
+      );
+      expectObservable(source$).toBe(expectedMarble, expectedValue);
+    });
+  });
+
+  it('should resolve observable of(0) cause empty', () => {
     testScheduler.run(({expectObservable}: RunHelpers) => {
       const expectedMarble: string = '(a|)';
       const expectedValue: any = {a: 0};
       const source$: Observable<number> = from([]).pipe(
         ifEmpty(of(0))
+      );
+      expectObservable(source$).toBe(expectedMarble, expectedValue);
+    });
+  });
+
+  it('should return 0 cause empty', () => {
+    testScheduler.run(({expectObservable}: RunHelpers) => {
+      const expectedMarble: string = '(a|)';
+      const expectedValue: any = {a: 0};
+      const source$: Observable<number> = from([]).pipe(
+        ifEmpty(0)
       );
       expectObservable(source$).toBe(expectedMarble, expectedValue);
     });
