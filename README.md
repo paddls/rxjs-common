@@ -13,19 +13,20 @@
 
 * [How to install](#how-to-install)
 * [Get Started](#get-started)
-    * [Log](#log)
-    * [SoftCache](#softcache)
-    * [HardCache](#hardcache)
-    * [IfEmpty](#ifempty)
-    * [IfNull](#ifnull)
-    * [IfNotNull](#ifnotnull)
-    * [IfTruthy](#iftruthy)
-    * [Wif](#wif)
+    * [log](#log)
+    * [softCache](#softcache)
+    * [hardCache](#hardcache)
+    * [ifEmpty](#ifempty)
+    * [ifNull](#ifnull)
+    * [ifNotNull](#ifnotnull)
+    * [ifTruthy](#iftruthy)
+    * [wif](#wif)
     * [onAny](#onany)
-    * [ArrayFilter](#arrayfilter)
-    * [CountSubscription](#countsubscription)
-    * [JoinArray](#joinarray)
-    * [ToHotArray](#tohotarray)
+    * [arrayFilter](#arrayfilter)
+    * [countSubscription](#countsubscription)
+    * [joinArray](#joinarray)
+    * [toHotArray](#tohotarray)
+    * [onError](#onerror)
 
 ## How to install
 
@@ -199,6 +200,28 @@ import {onAny} from '@witty-services/rxjs-common';
 
 EMPTY.pipe(
   onAny(() => console.log('Hello'))
+).subscribe()
+
+// output: 'Hello'
+```
+
+### onError()
+
+Handle Specific error
+
+Usage :
+```typescript
+import {of, timer} from 'rxjs';
+import {tap} from 'rxjs/operators';
+import {onError} from '@witty-services/rxjs-common';
+
+class MyCustomError {}
+
+timer(1000).pipe(
+  tap(() => throw new MyCustomError()),
+  onError(MyCustomError, (err: MyCustomError) => {
+    return of('Hello')
+  })
 ).subscribe()
 
 // output: 'Hello'
