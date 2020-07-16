@@ -1,8 +1,6 @@
-name: rxjs-common-build
+name: pull-request-checkup
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -23,7 +21,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Installation
       run: npm ci
-    - name: Build RxjsCommon
+    - name: Build
       run: npm run build
       env:
         CI: true
@@ -31,8 +29,3 @@ jobs:
       run: npm run lint
     - name: Test
       run: npm run test
-    - name: Send coverage to Coverall
-      uses: coverallsapp/github-action@v1.0.1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./coverage/lcov.info
