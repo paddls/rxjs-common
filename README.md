@@ -27,6 +27,7 @@
     * [joinArray](#joinarray)
     * [toHotArray](#tohotarray)
     * [onError](#onerror)
+    * [poll](#poll)
 
 ## How to install
 
@@ -231,3 +232,7 @@ timer(1000).pipe(
 ### countSubscription()
 ### joinArray()
 ### toHotArray()
+
+### poll()
+
+Allows to emit source observable's value and emit its value every interval

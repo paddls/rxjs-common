@@ -13,7 +13,7 @@ describe('poll', () => {
     }));
   });
 
-  it('should poll sourceObs each half second', () => {
+  it('should emit sourceObs$\'s result and trigger it again every 10ms interval', () => {
     testScheduler.run(({expectObservable, cold}: RunHelpers) => {
       const source$: Observable<any> = cold('a', {a: 1}).pipe(
         poll(10, true),
@@ -26,7 +26,7 @@ describe('poll', () => {
     });
   });
 
-  it('should poll sourceObs each half second', () => {
+  it('should emit sourceObs$\'s result every 10ms interval', () => {
     testScheduler.run(({expectObservable, cold}: RunHelpers) => {
       const source$: Observable<any> = cold('a', {a: 1}).pipe(
         poll(10, false),
