@@ -236,3 +236,19 @@ timer(1000).pipe(
 ### poll()
 
 Allows to emit source observable's value and emit its value every interval
+
+Usage :
+```typescript
+import { interval, merge, of } from "rxjs";
+import { map, switchMap, tap } from "rxjs/operators";
+
+const dataSource$ = of(1);
+
+dataSource$.pipe(
+  poll( 500, true),
+  take(4),
+  tap(console.log)
+).subscribe()
+
+// output: 1, 1, 1, 1
+```
