@@ -27,6 +27,7 @@
     * [joinArray](#joinarray)
     * [toHotArray](#tohotarray)
     * [onError](#onerror)
+    * [poll](#poll)
 
 ## How to install
 
@@ -231,3 +232,24 @@ timer(1000).pipe(
 ### countSubscription()
 ### joinArray()
 ### toHotArray()
+
+### poll()
+
+Allows to emit source observable's value and emit its value every interval
+
+Usage :
+```typescript
+import { of } from "rxjs";
+import { tap, take } from "rxjs/operators";
+import { poll } from '@witty-services/rxjs-common';
+
+const dataSource$ = of(1);
+
+dataSource$.pipe(
+  poll( 500, true),
+  take(4),
+  tap(console.log)
+).subscribe()
+
+// output: 1, 1, 1, 1
+```
