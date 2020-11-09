@@ -239,8 +239,9 @@ Allows to emit source observable's value and emit its value every interval
 
 Usage :
 ```typescript
-import { interval, merge, of } from "rxjs";
-import { map, switchMap, tap } from "rxjs/operators";
+import { of } from "rxjs";
+import { tap, take } from "rxjs/operators";
+import { poll } from '@witty-services/rxjs-common';
 
 const dataSource$ = of(1);
 
