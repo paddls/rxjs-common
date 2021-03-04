@@ -1,5 +1,5 @@
 import { switchMap } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable, of, OperatorFunction } from 'rxjs';
 import { isFunction } from 'lodash';
 
 type WhenResult<I, O> = ((input: I) => Result<O>) | Result<O>;
@@ -11,7 +11,7 @@ type Result<O> = O | Observable<O>;
  * @param whenTrue to be returned when condition is true
  * @param whenFalse to be returned when condition is false
  */
-export function wif<I, T, E>(condition: (input: I) => boolean, whenTrue: WhenResult<I, T>, whenFalse: WhenResult<I, E> = (input: any) => input): any {
+export function wif<I, T, E>(condition: (input: I) => boolean, whenTrue: WhenResult<I, T>, whenFalse: WhenResult<I, E> = (input: any) => input): OperatorFunction<I, T|E> {
   return (source$: Observable<I>) => source$.pipe(
     switchMap((input: I) => {
       const route: WhenResult<I, T> | WhenResult<I, E> = condition(input) ? whenTrue : whenFalse;

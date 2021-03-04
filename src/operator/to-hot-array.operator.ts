@@ -1,11 +1,11 @@
 import { scan } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 
 /**
  * like toArray but for hotObservable
  */
-export function toHotArray<I>(): any {
+export function toHotArray<I>(): OperatorFunction<I, I[]> {
   return (source$: Observable<I>) => source$.pipe(
-    scan((acc: I[], input: I) => [...acc, input], []),
+    scan((acc: I[], input: I) => [...acc, input], [])
   );
 }

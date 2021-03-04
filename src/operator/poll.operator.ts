@@ -1,4 +1,4 @@
-import {interval, merge, Observable} from 'rxjs';
+import { interval, merge, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 
 /**
@@ -6,7 +6,7 @@ import {switchMap} from 'rxjs/operators';
  * @param pollingInterval interval (in ms) between updates
  * @param pollOnStartup if true returns the emission of the cold Obs when it completes before applying the interval between calls
  */
-export function poll<T>(pollingInterval: number, pollOnStartup: boolean): any {
+export function poll<T>(pollingInterval: number, pollOnStartup: boolean): MonoTypeOperatorFunction<T> {
   return (source$: Observable<T>) => {
     const polledSource$: Observable<T> = interval(pollingInterval).pipe(
       switchMap(() => source$)
