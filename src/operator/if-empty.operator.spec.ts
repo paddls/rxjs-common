@@ -38,7 +38,7 @@ describe('ifEmpty', () => {
     testScheduler.run(({expectObservable, hot}: RunHelpers) => {
       const expectedMarble: string = '(abc)';
       const expectedValue: any = {a: 1, b: 2, c: 3};
-      const source$: Observable<number> = hot(expectedMarble, expectedValue).pipe(
+      const source$: Observable<any> = hot(expectedMarble, expectedValue).pipe(
         ifEmpty(0)
       );
       expectObservable(source$).toBe(expectedMarble, expectedValue);

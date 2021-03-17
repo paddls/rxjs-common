@@ -2,7 +2,8 @@ import { Observable } from 'rxjs';
 import { onAny } from './on-any.operator';
 import { TestScheduler } from 'rxjs/testing';
 import { RunHelpers } from 'rxjs/internal/testing/TestScheduler';
-import DoneCallback = jest.DoneCallback;
+import Spy = jasmine.Spy;
+import createSpy = jasmine.createSpy;
 
 describe('onAny', () => {
 
@@ -14,46 +15,55 @@ describe('onAny', () => {
     }));
   });
 
-  it('should return handle on error', (done: DoneCallback) => {
-    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+  it('should return handle on error', () => {
+    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+      const cb: Spy = createSpy();
       const source$: Observable<any> = hot('#').pipe(
-        onAny(() => {
-          done();
-        }),
+        onAny(cb)
       );
 
       expectObservable(source$).toBe('#');
+      flush();
+      expect(cb).toHaveBeenCalledTimes(1);
     });
   });
 
-  it('should return handle on empty', (done: DoneCallback) => {
-    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+  it('should return handle item then on error', () => {
+    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+      const cb: Spy = createSpy();
+      const source$: Observable<any> = hot('a#').pipe(
+        onAny(cb)
+      );
+
+      expectObservable(source$).toBe('a#');
+      flush();
+      expect(cb).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  it('should return handle on empty', () => {
+    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+      const cb: Spy = createSpy();
       const source$: Observable<any> = hot('|').pipe(
-        onAny(() => {
-          done();
-        }),
+        onAny(cb)
       );
 
       expectObservable(source$).toBe('|');
+      flush();
+      expect(cb).toHaveBeenCalledTimes(1);
     });
   });
 
-  it('should return handle on value', (done: DoneCallback) => {
-    let handle: number = 0;
-    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
-      const values: any = {
-        a: 0,
-        b: 1,
-      };
-      const source$: Observable<any> = hot('ab|', values).pipe(
-        onAny(() => {
-          if (++handle === 2) {
-            done();
-          }
-        }),
+  it('should return handle on value', () => {
+    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+      const cb: Spy = createSpy();
+      const source$: Observable<any> = hot('ab|').pipe(
+        onAny(cb)
       );
 
-      expectObservable(source$).toBe('ab|', values);
+      expectObservable(source$).toBe('ab|');
+      flush();
+      expect(cb).toHaveBeenCalledTimes(2);
     });
   });
 });

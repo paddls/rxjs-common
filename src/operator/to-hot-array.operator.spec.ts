@@ -16,7 +16,7 @@ describe('toHotArray', () => {
     testScheduler.run(({expectObservable}: RunHelpers) => {
       const expectedMarble: string = '(abc|)';
       const expectedValue: any = {a: [1], b: [1, 2], c: [1, 2, 3]};
-      const source$: Observable<number> = from([1, 2, 3]).pipe(
+      const source$: Observable<number[]> = from([1, 2, 3]).pipe(
         toHotArray()
       );
       expectObservable(source$).toBe(expectedMarble, expectedValue);
