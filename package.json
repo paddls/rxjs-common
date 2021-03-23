@@ -1,6 +1,6 @@
 {
   "name": "@witty-services/rxjs-common",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Type repository core library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,17 +26,17 @@
   "peerDependencies": {
     "lodash": "^4.17.15",
     "rxjs": "^6.5.4",
-    "typescript": "^3.7.3"
+    "typescript": ">= 3.7.3"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
+    "@types/jest": "^24.9.1",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.17",
     "jest": "^24.9.0",
     "lodash": "^4.17.15",
     "rxjs": "^6.5.4",
-    "ts-jest": "^24.2.0",
+    "ts-jest": "^26.5.4",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.3"
+    "typescript": "^4.0.0"
   }
 }
