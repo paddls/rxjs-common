@@ -17,6 +17,7 @@
     * [softCache](#softcache)
     * [hardCache](#hardcache)
     * [ifEmpty](#ifempty)
+    * [ifFalsy](#iffalsy)
     * [ifNull](#ifnull)
     * [ifNotNull](#ifnotnull)
     * [ifTruthy](#iftruthy)
@@ -119,7 +120,23 @@ of('test').pipe(
 ).subscribe(val => console.log(val))
 
 
-// output: 'Is empty', 'test'
+// output: 'test'
+```
+
+### ifFalsy()
+
+ifFalsy returns a boolean casting testing of observable source.
+
+Usage :
+```typescript
+import {from} from 'rxjs';
+import {ifFalsy} from '@witty-services/rxjs-common';
+
+from([0, 1]).pipe(
+  ifFalsy()
+).subscribe(val => console.log(val))
+
+// output:  0
 ```
 
 ### ifNull()
@@ -156,7 +173,7 @@ from([1, null, '', undefined, false, 0, '2']).pipe(
 
 ### ifTruthy()
 
-ifTruthy return a boolean casting testing of observable source.
+ifTruthy returns a boolean casting testing of observable source.
 
 Usage :
 ```typescript
@@ -252,4 +269,26 @@ dataSource$.pipe(
 ).subscribe()
 
 // output: 1, 1, 1, 1
+```
+
+### refreshOn()
+
+Emits or re-emits source's result at each trigger observable emission
+
+Usage :
+```typescript
+import { of } from "rxjs";
+import { tap } from "rxjs/operators";
+import { refreshOn } from '@witty-services/rxjs-common';
+
+const source$ = of(1);
+const triggerOne$ = of('a');
+const triggerTwo$ = of('b');
+
+dataSource$.pipe(
+  refreshOn(triggerOne$, triggerTwo$),
+  tap(console.log)
+).subscribe()
+
+// output: 1, 1, 1
 ```
