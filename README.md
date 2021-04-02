@@ -126,7 +126,7 @@ of('test').pipe(
 
 ### ifFalsy()
 
-ifFalsy returns a boolean casting testing of observable source.
+ifFalsy filters source where value is null, undefined, '', 0.
 
 Usage :
 ```typescript
@@ -174,7 +174,7 @@ from([1, null, '', undefined, false, 0, '2']).pipe(
 
 ### ifTruthy()
 
-ifTruthy returns a boolean casting testing of observable source.
+ifTruthy filters source where value is not null, undefined, '', 0.
 
 Usage :
 ```typescript
@@ -284,12 +284,11 @@ import { refreshOn } from '@witty-services/rxjs-common';
 
 const source$ = of(1);
 const triggerOne$ = of('a');
-const triggerTwo$ = of('b');
+const triggerTwo$ = interval(1000);
 
 dataSource$.pipe(
-  refreshOn(triggerOne$, triggerTwo$),
-  tap(console.log)
-).subscribe()
+refreshOn(triggerOne$, triggerTwo$)
+).subscribe(console.log);
 
-// output: 1, 1, 1
+// output: 1, 1, ... 1 every seconds
 ```
