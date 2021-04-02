@@ -45,7 +45,7 @@ describe('refreshOn', () => {
 
             expectObservable(source$.pipe(
                 refreshOn(trigger$)
-            )).toBe('a-a-a', {
+            )).toBe('a', {
                 a: 1,
             });
         });
