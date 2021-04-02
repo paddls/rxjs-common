@@ -29,6 +29,7 @@
     * [toHotArray](#tohotarray)
     * [onError](#onerror)
     * [poll](#poll)
+    * [refreshOn](#refreshon)
 
 ## How to install
 
