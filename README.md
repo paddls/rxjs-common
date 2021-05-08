@@ -19,7 +19,9 @@
     * [ifEmpty](#ifempty)
     * [ifFalsy](#iffalsy)
     * [ifNull](#ifnull)
+    * [ifNulls](#ifnulls)
     * [ifNotNull](#ifnotnull)
+    * [ifNotNulls](#ifnotnulls)
     * [ifTruthy](#iftruthy)
     * [wif](#wif)
     * [onAny](#onany)
@@ -156,6 +158,26 @@ from([1, null, '', undefined, false, 0, '2']).pipe(
 // output: null, '', undefined, false
 ```
 
+### ifNulls()
+
+Filter items emitted by the source array by only emitting when each item
+satisfies the == null condition.
+
+Usage :
+```typescript
+import {combineLatest, from} from 'rxjs';
+import {ifNulls} from './if-nulls.operator';
+
+combineLatest([
+  from([1, null]),
+  from([undefined, 2])
+]).pipe(
+  ifNulls()
+).subscribe(val => console.log(val))
+
+// output: [null, undefined], [undefined, undefined]
+```
+
 ### ifNotNull()
 
 Filter items emitted by the source Observable by only emitting non null value.
@@ -170,6 +192,26 @@ from([1, null, '', undefined, false, 0, '2']).pipe(
 ).subscribe(val => console.log(val))
 
 // output: 1, 0, '2'
+```
+
+### ifNotNulls()
+
+Filter items emitted by the source array by only emitting when each item
+satisfies the != null condition.
+
+Usage :
+```typescript
+import {combineLatest, from} from 'rxjs';
+import {ifNotNulls} from './if-not-nulls.operator';
+
+combineLatest([
+  from([null, 1, 2]),
+  from([3, undefined, 4])
+]).pipe(
+  ifNotNulls()
+).subscribe(val => console.log(val))
+
+// output: [1, 3], [2, 4]
 ```
 
 ### ifTruthy()
