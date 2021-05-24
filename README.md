@@ -423,7 +423,7 @@ from([1, 2, 3]).pipe(
     () => 'Greater than',
     () => 'Less than or equal'
   )
-).subscribe(val => console.log(val))
+).subscribe(console.log)
 
 // output:  'Less than or equal', 'Less than or equal', 'Greater than'
 ```
