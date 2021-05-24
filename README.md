@@ -32,6 +32,7 @@
     * [onError](#onerror)
     * [poll](#poll)
     * [refreshOn](#refreshon)
+    * [sneakyThrow](#sneakythrow)
 
 ## How to install
 
@@ -300,7 +301,7 @@ Allows to emit source observable's value and emit its value every interval
 Usage :
 ```typescript
 import { of } from "rxjs";
-import { tap, take } from "rxjs/operators";
+import { take } from "rxjs/operators";
 import { poll } from '@witty-services/rxjs-common';
 
 const dataSource$ = of(1);
@@ -308,8 +309,7 @@ const dataSource$ = of(1);
 dataSource$.pipe(
   poll( 500, true),
   take(4),
-  tap(console.log)
-).subscribe()
+).subscribe(console.log)
 
 // output: 1, 1, 1, 1
 ```
@@ -320,8 +320,7 @@ Emits or re-emits source's result at each trigger observable emission
 
 Usage :
 ```typescript
-import { of } from "rxjs";
-import { tap } from "rxjs/operators";
+import { of, interval } from "rxjs";
 import { refreshOn } from '@witty-services/rxjs-common';
 
 const source$ = of(1);
@@ -329,8 +328,25 @@ const triggerOne$ = of('a');
 const triggerTwo$ = interval(1000);
 
 dataSource$.pipe(
-refreshOn(triggerOne$, triggerTwo$)
+  refreshOn(triggerOne$, triggerTwo$)
 ).subscribe(console.log);
 
 // output: 1, 1, ... 1 every seconds
+```
+
+### sneakyThrow()
+
+Catches observable error and returns EMPTY
+
+Usage :
+```typescript
+import { of } from "rxjs";
+import { tap } from "rxjs/operators";
+import { sneakyThrow } from '@witty-services/rxjs-common';
+
+throwError(new Error('An error')).pipe(
+  sneakyThrow()
+).subscribe(console.log);
+
+// output: EMPTY
 ```
