@@ -1,5 +1,5 @@
-import {MonoTypeOperatorFunction} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { MonoTypeOperatorFunction } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 /**
  * log data passing through operator

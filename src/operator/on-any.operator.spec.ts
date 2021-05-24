@@ -16,7 +16,7 @@ describe('onAny', () => {
   });
 
   it('should return handle on error', () => {
-    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+    testScheduler.run(({expectObservable, hot, flush}: RunHelpers) => {
       const cb: Spy = createSpy();
       const source$: Observable<any> = hot('#').pipe(
         onAny(cb)
@@ -29,7 +29,7 @@ describe('onAny', () => {
   });
 
   it('should return handle item then on error', () => {
-    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+    testScheduler.run(({expectObservable, hot, flush}: RunHelpers) => {
       const cb: Spy = createSpy();
       const source$: Observable<any> = hot('a#').pipe(
         onAny(cb)
@@ -42,7 +42,7 @@ describe('onAny', () => {
   });
 
   it('should return handle on empty', () => {
-    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+    testScheduler.run(({expectObservable, hot, flush}: RunHelpers) => {
       const cb: Spy = createSpy();
       const source$: Observable<any> = hot('|').pipe(
         onAny(cb)
@@ -55,7 +55,7 @@ describe('onAny', () => {
   });
 
   it('should return handle on value', () => {
-    testScheduler.run(({ expectObservable, hot, flush }: RunHelpers) => {
+    testScheduler.run(({expectObservable, hot, flush}: RunHelpers) => {
       const cb: Spy = createSpy();
       const source$: Observable<any> = hot('ab|').pipe(
         onAny(cb)

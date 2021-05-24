@@ -1,5 +1,5 @@
-import {shareReplay} from 'rxjs/operators';
-import {MonoTypeOperatorFunction} from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
+import { MonoTypeOperatorFunction } from 'rxjs';
 
 /**
  * cache observable data until no subscriber
