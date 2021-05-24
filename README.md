@@ -77,6 +77,20 @@ of([1, 2, 3]).pipe(
 
 ### countSubscription()
 
+Logs number of active subscriptions.
+
+Basic usage :
+```typescript
+import { from } from 'rxjs';
+import { countSubscription } from '@witty-services/rxjs-common';
+
+from(['a', 'b']).pipe(
+  countSubscription()
+).subscribe();
+
+// outputs number of active subscriptions through time
+```
+
 ### hardCache()
 
 Creates a cache between buffer and subscriptions. Cache is not destroyed when there is no more active subscription.
@@ -222,6 +236,20 @@ from([0, 1]).pipe(
 
 ### joinArray()
 
+Combines the latest values of source and each input array into a single array.
+
+Usage :
+```typescript
+import { from } from 'rxjs';
+import { joinArray } from '@witty-services/rxjs-common';
+
+from([[1], [3]]).pipe(
+  joinArray(from([[], [2], []])),
+).subscribe(console.log)
+
+// output:  [1], [1, 2], [3]
+```
+
 ### log()
 
 Logs observable content with console API.
@@ -330,7 +358,7 @@ dataSource$.pipe(
 
 ### sneakyThrow()
 
-Catches observable error and returns EMPTY
+Catches observable error and returns EMPTY.
 
 Usage :
 ```typescript
@@ -365,6 +393,20 @@ buffer$.subscribe().unsubscribe(); // should display nothing cause previous subs
 ```
 
 ### toHotArray()
+
+Scans source values into an array.
+
+Usage :
+```typescript
+import { from } from "rxjs";
+import { sneakyThrow } from '@witty-services/rxjs-common';
+
+from([1, 2, 3]).pipe(
+  toHotArray()
+).subscribe(console.log);
+
+// output: [1], [1, 2], [1, 2, 3]
+```
 
 ### wif()
 

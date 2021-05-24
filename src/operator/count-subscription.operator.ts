@@ -5,8 +5,8 @@ let totalSubscriptions: number = 0;
 const subscriptionsCounter: Map<string, number> = new Map();
 
 /**
- * count subscribers to detect subscription leak
- * @param name name of the
+ * count subscribers to detect subscription leaks
+ * @param name name of the observable
  */
 export function countSubscription<T>(name: string): MonoTypeOperatorFunction<T> {
   return function refCountOperatorFunction(source$: Observable<any>): Observable<any> {
