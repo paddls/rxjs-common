@@ -4,9 +4,10 @@ import { MonoTypeOperatorFunction } from 'rxjs';
 /**
  * cache observable data until no subscriber
  */
-export function softCache<T>(): MonoTypeOperatorFunction<T> {
+export function softCache<T>(expires: number = null): MonoTypeOperatorFunction<T> {
   return shareReplay({
     refCount: true,
-    bufferSize: 1
+    bufferSize: 1,
+    windowTime: expires
   });
 }
