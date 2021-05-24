@@ -6,6 +6,6 @@ import { map } from 'rxjs/operators';
  * @param predicate A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.
  * @param thisArg An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
  */
-export function arrayFilter<T>(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): MonoTypeOperatorFunction<T[]> {
+export function arrayFilter<T>(predicate: (value: T, index: number, array: T[]) => boolean, thisArg?: any): MonoTypeOperatorFunction<T[]> {
   return map((value: T[]) => value.filter(predicate, thisArg));
 }

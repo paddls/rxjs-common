@@ -21,4 +21,14 @@ describe('arrayFilter', () => {
       expectObservable(source$).toBe('(a|)', {a: [2, 4]});
     });
   });
+
+  it(`should return filtered source's array at each emission`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+
+      const source$: Observable<number[]> = hot('ab', {a: [1, 2, 3, 4, 5], b: [0]}).pipe(
+        arrayFilter((input: number) => input % 2 === 0)
+      );
+      expectObservable(source$).toBe('ab', {a: [2, 4], b: [0]});
+    });
+  });
 });

@@ -21,4 +21,14 @@ describe('arrayMap', () => {
       expectObservable(source$).toBe('(a|)', {a: ['1', '2', '3']});
     });
   });
+
+  it(`should return mapped source's array at each emission`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+
+      const source$: Observable<string[]> = hot('ab', {a: [1, 2, 3], b: [1] }).pipe(
+        arrayMap((input: number) => `${ input }`)
+      );
+      expectObservable(source$).toBe('ab', {a: ['1', '2', '3'], b: ['1']});
+    });
+  });
 });

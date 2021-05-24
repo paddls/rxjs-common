@@ -1,6 +1,6 @@
 import { TestScheduler } from 'rxjs/testing';
 import { RunHelpers } from 'rxjs/internal/testing/TestScheduler';
-import { combineLatest, forkJoin, Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { ifNulls } from './if-nulls.operator';
 
 describe('ifNulls', () => {
@@ -12,35 +12,78 @@ describe('ifNulls', () => {
     }));
   });
 
-  it(`should not filter values`, () => {
-    testScheduler.run(({expectObservable, cold}: RunHelpers) => {
-      const sourceOne$: Observable<any> = cold('(a|)', {
-        a: null
-      });
-      const sourceTwo$: Observable<any> = cold('(b|)', {
-        b: undefined
-      });
-
-      expectObservable(forkJoin([sourceOne$, sourceTwo$]).pipe(
-        ifNulls()
-      )).toBe('(c|)', {c: [null, undefined]});
-    });
-  });
-
-  it(`should filter values when at least one is not null`, () => {
+  it(`should filter values when one is null`, () => {
     testScheduler.run(({expectObservable, hot}: RunHelpers) => {
-      const sourceOne$: Observable<any> = hot('abc', {
-        a: 1,
-        b: null
+      const sourceOne$: Observable<any> = hot('a', {
+        a: null,
       });
-      const sourceTwo$: Observable<any> = hot('abc', {
-        a: undefined,
-        b: 2
+      const sourceTwo$: Observable<any> = hot('a', {
+        a: 3,
       });
 
       expectObservable(combineLatest([sourceOne$, sourceTwo$]).pipe(
         ifNulls()
-      )).toBe('-de', {d: [null, undefined], e: [undefined, undefined]});
+      )).toBe('');
+    });
+  });
+
+  it(`should filter values when one is undefined`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+      const sourceOne$: Observable<any> = hot('a', {
+        a: undefined,
+      });
+      const sourceTwo$: Observable<any> = hot('a', {
+        a: 3,
+      });
+
+      expectObservable(combineLatest([sourceOne$, sourceTwo$]).pipe(
+        ifNulls()
+      )).toBe('');
+    });
+  });
+
+  it(`should not filter values when both are undefined`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+      const sourceOne$: Observable<any> = hot('a', {
+        a: undefined,
+      });
+      const sourceTwo$: Observable<any> = hot('a', {
+        a: undefined,
+      });
+
+      expectObservable(combineLatest([sourceOne$, sourceTwo$]).pipe(
+        ifNulls()
+      )).toBe('a', {a: [undefined, undefined]});
+    });
+  });
+
+  it(`should filter values when both are null`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+      const sourceOne$: Observable<any> = hot('a', {
+        a: null,
+      });
+      const sourceTwo$: Observable<any> = hot('a', {
+        a: null,
+      });
+
+      expectObservable(combineLatest([sourceOne$, sourceTwo$]).pipe(
+        ifNulls()
+      )).toBe('a', {a: [null, null]});
+    });
+  });
+
+  it(`should filter values when both are not null`, () => {
+    testScheduler.run(({expectObservable, hot}: RunHelpers) => {
+      const sourceOne$: Observable<any> = hot('a', {
+        a: 1,
+      });
+      const sourceTwo$: Observable<any> = hot('a', {
+        a: 2,
+      });
+
+      expectObservable(combineLatest([sourceOne$, sourceTwo$]).pipe(
+        ifNulls()
+      )).toBe('');
     });
   });
 });
