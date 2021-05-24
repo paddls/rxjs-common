@@ -28,7 +28,7 @@ describe('sneakyThrow', () => {
         sneakyThrow()
       );
 
-      expectObservable(source$).toBe('(a|)', { a: 1 });
+      expectObservable(source$).toBe('(a|)', {a: 1});
     });
   });
 });

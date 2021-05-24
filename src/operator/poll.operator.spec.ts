@@ -1,7 +1,7 @@
-import {poll} from './poll.operator';
-import {Observable} from 'rxjs';
-import {RunHelpers, TestScheduler} from 'rxjs/internal/testing/TestScheduler';
-import {take} from 'rxjs/operators';
+import { poll } from './poll.operator';
+import { Observable } from 'rxjs';
+import { RunHelpers, TestScheduler } from 'rxjs/internal/testing/TestScheduler';
+import { take } from 'rxjs/operators';
 
 describe('poll', () => {
 

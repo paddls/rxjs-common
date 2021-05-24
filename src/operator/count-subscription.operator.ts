@@ -1,5 +1,5 @@
-import {finalize} from 'rxjs/operators';
-import {defer, MonoTypeOperatorFunction, Observable} from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { defer, MonoTypeOperatorFunction, Observable } from 'rxjs';
 
 let totalSubscriptions: number = 0;
 const subscriptionsCounter: Map<string, number> = new Map();
@@ -41,9 +41,9 @@ export function countSubscription<T>(name: string): MonoTypeOperatorFunction<T> 
   function logSubscriptionCount(id: string): void {
     const count: number = subscriptionsCounter.get(id) || 0;
     if (id) {
-      console.log(`${count}/${totalSubscriptions} subscription for ${id}`);
+      console.log(`${ count }/${ totalSubscriptions } subscription for ${ id }`);
     } else {
-      console.log(`${count}/${totalSubscriptions} subscription`);
+      console.log(`${ count }/${ totalSubscriptions } subscription`);
     }
   }
 }

@@ -1,7 +1,7 @@
-import {onError} from './on-error.operator';
-import {TestScheduler} from 'rxjs/testing';
-import {Observable, of} from 'rxjs';
-import {RunHelpers} from 'rxjs/internal/testing/TestScheduler';
+import { onError } from './on-error.operator';
+import { TestScheduler } from 'rxjs/testing';
+import { Observable, of } from 'rxjs';
+import { RunHelpers } from 'rxjs/internal/testing/TestScheduler';
 
 describe('onError', () => {
 
@@ -19,7 +19,7 @@ describe('onError', () => {
   it('should handle when error match', () => {
     testScheduler.run(({expectObservable, hot}: RunHelpers) => {
       const source$: Observable<any> = hot('a#', {a: 1}, new A()).pipe(
-        onError(A, (err: A) => {
+        onError(A, () => {
           return of(2);
         }),
       );
@@ -35,7 +35,7 @@ describe('onError', () => {
   it('should not handle when error mismatch', () => {
     testScheduler.run(({expectObservable, hot}: RunHelpers) => {
       const source$: Observable<any> = hot('a#', {a: 1}, 'some error').pipe(
-        onError(A, (err: A) => {
+        onError(A, () => {
           return of(2);
         }),
       );
