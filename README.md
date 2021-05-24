@@ -13,6 +13,8 @@
 
 * [How to install](#how-to-install)
 * [Get Started](#get-started)
+    * [arrayFilter](#arrayfilter)
+    * [arrayMap](#arraymap)
     * [log](#log)
     * [softCache](#softcache)
     * [hardCache](#hardcache)
@@ -40,6 +42,38 @@ npm install --save @witty-services/rxjs-common
 ```
 
 ## Get Started
+
+### arrayFilter()
+
+Returns the elements of source's array that meet the condition specified in a callback function.
+
+Usage :
+```typescript
+import { of } from 'rxjs';
+import { arrayFilter } from '@witty-services/rxjs-common';
+
+of([1, 2, 3, 4, 5]).pipe(
+  arrayFilter((input: number) => input % 2 === 0)
+).subscribe(console.log);
+
+// output: [2, 4]
+```
+
+### arrayMap()
+
+Calls a defined callback function on each element of source's array, and returns an array that contains the results.
+
+Usage :
+```typescript
+import { of } from 'rxjs';
+import { arrayMap } from '@witty-services/rxjs-common';
+
+of([1, 2, 3]).pipe(
+  arrayMap((input: number) => `${ input }`)
+).subscribe(console.log);
+
+// output: ['1', '2', '3']
+```
 
 ### log()
 

@@ -15,3 +15,5 @@ export { ifEmpty } from './operator/if-empty.operator';
 export { onAny } from './operator/on-any.operator';
 export { refreshOn } from './operator/refresh-on.operator';
 export { sneakyThrow } from './operator/sneaky-throw.operator';
+export { arrayMap } from './operator/array-map.operator';
+export { arrayFilter } from './operator/array-filter.operator';
