@@ -12,6 +12,6 @@ export { joinArray } from './operator/join-array.operator';
 export { ifTruthy } from './operator/if-truthy.operator';
 export { ifFalsy } from './operator/if-falsy.operator';
 export { ifEmpty } from './operator/if-empty.operator';
-export { arrayFilter } from './operator/array-filter.operator';
 export { onAny } from './operator/on-any.operator';
 export { refreshOn } from './operator/refresh-on.operator';
+export { sneakyThrow } from './operator/sneaky-throw.operator';

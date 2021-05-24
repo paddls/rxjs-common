@@ -25,7 +25,6 @@
     * [ifTruthy](#iftruthy)
     * [wif](#wif)
     * [onAny](#onany)
-    * [arrayFilter](#arrayfilter)
     * [countSubscription](#countsubscription)
     * [joinArray](#joinarray)
     * [toHotArray](#tohotarray)
@@ -289,7 +288,6 @@ timer(1000).pipe(
 // output: 'Hello'
 ```
 
-### arrayFilter()
 ### countSubscription()
 ### joinArray()
 ### toHotArray()
