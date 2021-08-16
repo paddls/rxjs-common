@@ -2,7 +2,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
-    "module": "commonjs",
+    "module": "esnext",
     "sourceMap": true,
     "lib": ["es2018", "dom"],
     "outDir": "./dist",
