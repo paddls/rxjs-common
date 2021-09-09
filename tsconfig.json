@@ -7,7 +7,8 @@
     "lib": ["es2018", "dom"],
     "outDir": "./dist",
     "target": "es5",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
   "typedocOptions": {
     "mode": "modules",
