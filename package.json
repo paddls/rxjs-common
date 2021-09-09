@@ -1,6 +1,6 @@
 {
   "name": "@witty-services/rxjs-common",
-  "version": "1.2.1",
+  "version": "1.2.2-rc.0",
   "description": "Type repository core library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,16 +24,16 @@
   "author": "Romain MARTINEAU",
   "license": "MIT",
   "peerDependencies": {
-    "lodash": "^4.17.15",
     "rxjs": "^6.5.4",
-    "typescript": ">= 3.7.3"
+    "typescript": ">= 3.7.3",
+    "lodash-es": "4.17.21"
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
-    "@types/lodash": "^4.14.149",
+    "@types/lodash-es": "^4.17.4",
     "@types/node": "^12.12.17",
     "jest": "^26.5.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "rxjs": "^6.5.4",
     "ts-jest": "^26.5.4",
     "tslint": "^5.20.1",
