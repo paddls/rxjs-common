@@ -53,10 +53,27 @@ import { of } from 'rxjs';
 import { arrayFilter } from '@witty-services/rxjs-common';
 
 of([1, 2, 3, 4, 5]).pipe(
-  arrayFilter((input: number) => input % 2 === 0)
+        arrayFilter((input: number) => input % 2 === 0)
 ).subscribe(console.log);
 
 // output: [2, 4]
+```
+
+### arrayFind()
+
+Returns the single element of source's array that meet the condition specified in a callback function.
+
+Usage :
+
+```typescript
+import { of } from 'rxjs';
+import { arrayFind } from '@witty-services/rxjs-common';
+
+of([1, 2, 3, 4, 5]).pipe(
+        arrayFind((input: number) => input > 1)
+).subscribe(console.log);
+
+// output: 2
 ```
 
 ### arrayMap()
@@ -64,6 +81,7 @@ of([1, 2, 3, 4, 5]).pipe(
 Calls a defined callback function on each element of source's array, and returns an array that contains the results.
 
 Usage :
+
 ```typescript
 import { of } from 'rxjs';
 import { arrayMap } from '@witty-services/rxjs-common';

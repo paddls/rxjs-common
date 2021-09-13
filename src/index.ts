@@ -1,3 +1,4 @@
+export { arrayFind } from './operator/array-find.operator';
 export { arrayFilter } from './operator/array-filter.operator';
 export { arrayMap } from './operator/array-map.operator';
 export { countSubscription } from './operator/count-subscription.operator';
