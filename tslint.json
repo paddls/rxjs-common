@@ -9,7 +9,8 @@
     },
     "import-blacklist": [
       true,
-      "rxjs/Rx"
+      "rxjs/Rx",
+      "lodash"
     ],
     "interface-name": false,
     "max-classes-per-file": false,

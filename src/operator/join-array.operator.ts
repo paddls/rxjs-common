@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { combineLatest, Observable } from 'rxjs';
-import flatten from 'lodash-es/flatten';
+import flatten from 'lodash/flatten';
 
 /**
  * Combines the latest values of source and each input array into a single array.

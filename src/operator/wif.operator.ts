@@ -1,6 +1,6 @@
 import { switchMap } from 'rxjs/operators';
 import { Observable, of, OperatorFunction } from 'rxjs';
-import isFunction from 'lodash-es/isFunction';
+import isFunction from 'lodash/isFunction';
 
 type WhenResult<I, O> = ((input: I) => Result<O>) | Result<O>;
 type Result<O> = O | Observable<O>;
