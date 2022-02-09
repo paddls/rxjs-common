@@ -1,13 +1,13 @@
 # Rxjs Common
 
-![rxjs-common-ci](https://github.com/witty-services/rxjs-common/workflows/rxjs-common-build/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/witty-services/rxjs-common/badge.svg?branch=master)](https://coveralls.io/github/witty-services/rxjs-common?branch=master)
-[![npm version](https://badge.fury.io/js/%40witty-services%2Frxjs-common.svg)](https://badge.fury.io/js/%40witty-services%2Frxjs-common)
-![GitHub](https://img.shields.io/github/license/witty-services/rxjs-common)
-![GitHub repo size](https://img.shields.io/github/repo-size/witty-services/rxjs-common)
-![GitHub last commit](https://img.shields.io/github/last-commit/witty-services/rxjs-common)
-![GitHub issues](https://img.shields.io/github/issues/witty-services/rxjs-common)
-![GitHub top language](https://img.shields.io/github/languages/top/witty-services/rxjs-common)
+![rxjs-common-ci](https://github.com/paddls/rxjs-common/workflows/rxjs-common-build/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/paddls/rxjs-common/badge.svg?branch=master)](https://coveralls.io/github/paddls/rxjs-common?branch=master)
+[![npm version](https://badge.fury.io/js/%40paddls%2Frxjs-common.svg)](https://badge.fury.io/js/%40paddls%2Frxjs-common)
+![GitHub](https://img.shields.io/github/license/paddls/rxjs-common)
+![GitHub repo size](https://img.shields.io/github/repo-size/paddls/rxjs-common)
+![GitHub last commit](https://img.shields.io/github/last-commit/paddls/rxjs-common)
+![GitHub issues](https://img.shields.io/github/issues/paddls/rxjs-common)
+![GitHub top language](https://img.shields.io/github/languages/top/paddls/rxjs-common)
 
 ## Summary
 
@@ -38,7 +38,7 @@
 ## How to install
 
 ```
-npm install --save @witty-services/rxjs-common
+npm install --save @paddls/rxjs-common
 ```
 
 ## Get Started
@@ -50,7 +50,7 @@ Returns the elements of source's array that meet the condition specified in a ca
 Usage :
 ```typescript
 import { of } from 'rxjs';
-import { arrayFilter } from '@witty-services/rxjs-common';
+import { arrayFilter } from '@paddls/rxjs-common';
 
 of([1, 2, 3, 4, 5]).pipe(
         arrayFilter((input: number) => input % 2 === 0)
@@ -67,7 +67,7 @@ Usage :
 
 ```typescript
 import { of } from 'rxjs';
-import { arrayFind } from '@witty-services/rxjs-common';
+import { arrayFind } from '@paddls/rxjs-common';
 
 of([1, 2, 3, 4, 5]).pipe(
         arrayFind((input: number) => input > 1)
@@ -84,7 +84,7 @@ Usage :
 
 ```typescript
 import { of } from 'rxjs';
-import { arrayMap } from '@witty-services/rxjs-common';
+import { arrayMap } from '@paddls/rxjs-common';
 
 of([1, 2, 3]).pipe(
   arrayMap((input: number) => `${ input }`)
@@ -100,7 +100,7 @@ Logs number of active subscriptions.
 Basic usage :
 ```typescript
 import { from } from 'rxjs';
-import { countSubscription } from '@witty-services/rxjs-common';
+import { countSubscription } from '@paddls/rxjs-common';
 
 from(['a', 'b']).pipe(
   countSubscription()
@@ -116,7 +116,7 @@ Creates a cache between buffer and subscriptions. Cache is not destroyed when th
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { log, hardCache } from '@witty-services/rxjs-common';
+import { log, hardCache } from '@paddls/rxjs-common';
 
 const buffer$ = from('a').pipe(
   log(),
@@ -134,7 +134,7 @@ Returns default observable when parent return is empty.
 Usage :
 ```typescript
 import { EMPTY, of } from 'rxjs';
-import { ifEmpty } from '@witty-services/rxjs-common';
+import { ifEmpty } from '@paddls/rxjs-common';
 
 EMPTY.pipe(
   ifEmpty('test')
@@ -155,7 +155,7 @@ Filters source where value is null, undefined, '', 0.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { ifFalsy } from '@witty-services/rxjs-common';
+import { ifFalsy } from '@paddls/rxjs-common';
 
 from([0, 1]).pipe(
   ifFalsy()
@@ -171,7 +171,7 @@ Filters items emitted by the source Observable by only emitting non null value.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { ifNotNull } from '@witty-services/rxjs-common';
+import { ifNotNull } from '@paddls/rxjs-common';
 
 from([1, null, '', undefined, false, 0, '2']).pipe(
   ifNotNull()
@@ -207,7 +207,7 @@ Filters items emitted by the source Observable by only emitting null value.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { ifNull } from '@witty-services/rxjs-common';
+import { ifNull } from '@paddls/rxjs-common';
 
 from([1, null, '', undefined, false, 0, '2']).pipe(
   ifNull()
@@ -243,7 +243,7 @@ Filters source where value is not null, undefined, '', 0.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { ifTruthy } from '@witty-services/rxjs-common';
+import { ifTruthy } from '@paddls/rxjs-common';
 
 from([0, 1]).pipe(
   ifTruthy()
@@ -259,7 +259,7 @@ Combines the latest values of source and each input array into a single array.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { joinArray } from '@witty-services/rxjs-common';
+import { joinArray } from '@paddls/rxjs-common';
 
 from([[1], [3]]).pipe(
   joinArray(from([[], [2], []])),
@@ -275,7 +275,7 @@ Logs observable content with console API.
 Basic usage :
 ```typescript
 import { from } from 'rxjs';
-import { log } from '@witty-services/rxjs-common';
+import { log } from '@paddls/rxjs-common';
 
 from(['a', 'b']).pipe(
   log()
@@ -287,7 +287,7 @@ from(['a', 'b']).pipe(
 With params usage :
 ```typescript
 import { from } from 'rxjs';
-import { log } from '@witty-services/rxjs-common';
+import { log } from '@paddls/rxjs-common';
 
 from(['a', 'b']).pipe(
   log('Hello World !')
@@ -303,7 +303,7 @@ Triggers callback on any event passing through (EMPTY observable, error or value
 Usage :
 ```typescript
 import { EMPTY } from 'rxjs';
-import { onAny } from '@witty-services/rxjs-common';
+import { onAny } from '@paddls/rxjs-common';
 
 EMPTY.pipe(
   onAny(() => console.log('Hello'))
@@ -320,7 +320,7 @@ Usage :
 ```typescript
 import { of, timer } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { onError } from '@witty-services/rxjs-common';
+import { onError } from '@paddls/rxjs-common';
 
 class MyCustomError {}
 
@@ -342,7 +342,7 @@ Usage :
 ```typescript
 import { of } from "rxjs";
 import { take } from "rxjs/operators";
-import { poll } from '@witty-services/rxjs-common';
+import { poll } from '@paddls/rxjs-common';
 
 const dataSource$ = of(1);
 
@@ -361,7 +361,7 @@ Emits or re-emits source's value at each trigger observable emission.
 Usage :
 ```typescript
 import { of, interval } from "rxjs";
-import { refreshOn } from '@witty-services/rxjs-common';
+import { refreshOn } from '@paddls/rxjs-common';
 
 const source$ = of(1);
 const triggerOne$ = of('a');
@@ -382,7 +382,7 @@ Usage :
 ```typescript
 import { of } from "rxjs";
 import { tap } from "rxjs/operators";
-import { sneakyThrow } from '@witty-services/rxjs-common';
+import { sneakyThrow } from '@paddls/rxjs-common';
 
 throwError(new Error('An error')).pipe(
   sneakyThrow()
@@ -398,7 +398,7 @@ Creates a cache destroyed when there is no more active subscription.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { log, softCache } from '@witty-services/rxjs-common';
+import { log, softCache } from '@paddls/rxjs-common';
 
 const buffer$ = from('a').pipe(
   log(),
@@ -417,7 +417,7 @@ Scans source values into an array.
 Usage :
 ```typescript
 import { from } from "rxjs";
-import { sneakyThrow } from '@witty-services/rxjs-common';
+import { sneakyThrow } from '@paddls/rxjs-common';
 
 from([1, 2, 3]).pipe(
   toHotArray()
@@ -433,7 +433,7 @@ Returns either an observable or another depending on the condition.
 Usage :
 ```typescript
 import { from } from 'rxjs';
-import { wif } from '@witty-services/rxjs-common';
+import { wif } from '@paddls/rxjs-common';
 
 from([1, 2, 3]).pipe(
   wif(
