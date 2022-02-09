@@ -2,7 +2,7 @@
 
 ![rxjs-common-ci](https://github.com/paddls/rxjs-common/workflows/rxjs-common-build/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/paddls/rxjs-common/badge.svg?branch=master)](https://coveralls.io/github/paddls/rxjs-common?branch=master)
-[![npm version](https://badge.fury.io/js/%40paddls%2Frxjs-common.svg)](https://badge.fury.io/js/%40paddls%2Frxjs-common)
+[![npm version](https://badge.fury.io/js/@paddls%2Frxjs-common.svg)](https://badge.fury.io/js/@paddls%2Frxjs-common)
 ![GitHub](https://img.shields.io/github/license/paddls/rxjs-common)
 ![GitHub repo size](https://img.shields.io/github/repo-size/paddls/rxjs-common)
 ![GitHub last commit](https://img.shields.io/github/last-commit/paddls/rxjs-common)
