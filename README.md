@@ -12,7 +12,7 @@
 
 ## Informations
 
-> :warning: Since version 1.0.10, ```rxjs-common``` has been published under ```@paddls``` namespace. We continue to maintain ```@witty-services``` namespace.
+> :warning: Since version 1.3.2, ```rxjs-common``` has been published under ```@paddls``` namespace. We continue to maintain ```@witty-services``` namespace.
 
 ## Summary
 
