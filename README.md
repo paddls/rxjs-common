@@ -9,6 +9,11 @@
 ![GitHub issues](https://img.shields.io/github/issues/paddls/rxjs-common)
 ![GitHub top language](https://img.shields.io/github/languages/top/paddls/rxjs-common)
 
+
+## Informations
+
+> :warning: Since version 1.0.10, ```rxjs-common``` has been published under ```@paddls``` namespace. We continue to maintain ```@witty-services``` namespace.
+
 ## Summary
 
 * [How to install](#how-to-install)
