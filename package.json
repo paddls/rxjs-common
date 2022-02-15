@@ -17,9 +17,7 @@
     "build:watch": "tsc -w",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --coverage",
-    "test:watch": "jest --coverage --watch",
-    "test:ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "publish:lib": "npm run build && npm publish --access=public"
+    "test:watch": "jest --coverage --watch"
   },
   "author": "Romain MARTINEAU",
   "license": "MIT",
