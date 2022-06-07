@@ -4,16 +4,13 @@
     "declarationDir": "./dist",
     "module": "esnext",
     "sourceMap": true,
-    "lib": ["es2018", "dom"],
+    "lib": ["es2018", "es2019", "dom"],
     "outDir": "./dist",
     "target": "es5",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "typeRoots": ["node_modules/@types", "manual_typings"],
-    "paths": {
-      "lodash/*": ["node_modules/@types/lodash-es/*"]
-    },
     "esModuleInterop": true
   },
   "typedocOptions": {
