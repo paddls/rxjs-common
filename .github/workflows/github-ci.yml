@@ -93,7 +93,7 @@ jobs:
           path: ./dist
 
       - name: Publish @paddls
-        uses: pascalgn/npm-publish-action@1.3.8
+        uses: pascalgn/npm-publish-action@1.3.9
         with:
           tag_name: "v%s"
           tag_message: "v%s"
@@ -129,7 +129,7 @@ jobs:
           value: "@witty-services/rxjs-common"
 
       - name: Publish @witty-services
-        uses: pascalgn/npm-publish-action@1.3.8
+        uses: pascalgn/npm-publish-action@1.3.9
         with:
           commit_pattern: "^release: v(\\S+)"
           publish_args: "--access public"
