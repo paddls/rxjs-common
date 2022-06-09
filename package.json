@@ -25,7 +25,11 @@
     "rxjs": "^6.5.4",
     "typescript": ">= 3.7.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.flatten": "^4.4.0",
+    "lodash.get": "^4.4.2",
+    "lodash.isfunction": "^3.0.9"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.21",
     "@types/node": "^12.12.17",

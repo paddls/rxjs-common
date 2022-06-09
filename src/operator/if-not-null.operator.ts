@@ -1,6 +1,6 @@
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import {get} from '../util';
+import get from 'lodash.get';
 
 /**
  * filter != null value

@@ -1,5 +1,6 @@
 import { map } from 'rxjs/operators';
 import { combineLatest, Observable } from 'rxjs';
+import flatten from 'lodash.flatten';
 
 /**
  * Combines the latest values of source and each input array into a single array.
@@ -8,7 +9,7 @@ import { combineLatest, Observable } from 'rxjs';
 export function joinArray<I>(...input$: Observable<I[]>[]): any {
   return (source$: Observable<I[]>) => {
     return combineLatest([source$, ...input$]).pipe(
-      map((sources: I[][]) => sources.flat()),
+      map((sources: I[][]) => flatten(sources)),
     );
   };
 }
