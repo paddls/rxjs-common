@@ -6,11 +6,13 @@
     "sourceMap": true,
     "lib": ["es2018", "dom"],
     "outDir": "./dist",
-    "target": "es5",
+    "target": "es2017",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "manual_typings"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "esModuleInterop": true
   },
   "typedocOptions": {
