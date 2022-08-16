@@ -1,7 +1,7 @@
 {
   "name": "@paddls/rxjs-common",
-  "version": "2.0.0-rc.2",
-  "description": "RxJS Common library",
+  "version": "2.0.0-rc.3",
+  "description": "A collection of useful RxJS operators",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -12,8 +12,7 @@
     "url": "https://github.com/paddls/rxjs-common"
   },
   "scripts": {
-    "clean": "rm -R -f dist",
-    "build": "npm run clean && npm run lint && tsc",
+    "build": "npm run lint && tsc",
     "build:watch": "tsc -w",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --coverage",
@@ -33,10 +32,10 @@
   "devDependencies": {
     "@types/jest": "^26.0.21",
     "@types/node": "^12.12.17",
-    "jest": "^26.5.4",
-    "rxjs": "^6.5.4",
-    "ts-jest": "^26.5.4",
+    "jest": "^28.1.1",
+    "rxjs": "^7.5.5",
+    "ts-jest": "^28.0.5",
     "tslint": "^5.20.1",
-    "typescript": "^4.0.0"
+    "typescript": "^4.7.3"
   }
 }
