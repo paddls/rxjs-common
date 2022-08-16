@@ -1,6 +1,6 @@
 {
   "name": "@paddls/rxjs-common",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "description": "RxJS Common library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
