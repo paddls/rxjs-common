@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/paddls/rxjs-common"
+    "url": "https://github.com/paddls/rxjs-common"
   },
   "scripts": {
     "clean": "rm -R -f dist",
@@ -22,7 +22,7 @@
   "author": "Romain MARTINEAU",
   "license": "MIT",
   "peerDependencies": {
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.5.4 || ^7.0.0",
     "typescript": ">= 3.7.3"
   },
   "dependencies": {
