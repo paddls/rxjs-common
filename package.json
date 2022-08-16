@@ -1,6 +1,6 @@
 {
   "name": "@paddls/rxjs-common",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0-rc.4",
   "description": "A collection of useful RxJS operators",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -32,6 +32,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.21",
     "@types/node": "^12.12.17",
+    "@types/lodash.flatten": "^4.4.7",
+    "@types/lodash.get": "^4.4.7",
+    "@types/lodash.isfunction": "^3.0.7",
     "jest": "^28.1.1",
     "rxjs": "^7.5.5",
     "ts-jest": "^28.0.5",
