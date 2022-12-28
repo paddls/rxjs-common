@@ -14,11 +14,11 @@
   "scripts": {
     "build": "npm run lint && tsc",
     "build:watch": "tsc -w",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "eslint \"src/**/*.ts\"",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch"
   },
-  "author": "Romain MARTINEAU",
+  "author": "Romain MARTINEAU, Oscar GUERIN",
   "license": "MIT",
   "peerDependencies": {
     "rxjs": "^6.5.4 || ^7.0.0",
@@ -31,14 +31,16 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.21",
-    "@types/node": "^12.12.17",
     "@types/lodash.flatten": "^4.4.7",
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.isfunction": "^3.0.7",
+    "@types/node": "^12.12.17",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.30.0",
     "jest": "^28.1.1",
     "rxjs": "^7.5.5",
     "ts-jest": "^28.0.5",
-    "tslint": "^5.20.1",
     "typescript": "^4.7.3"
   }
 }

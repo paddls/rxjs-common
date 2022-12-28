@@ -17,32 +17,32 @@
 
 * [How to install](#how-to-install)
 * [Most used operators](#most-used-operators)
-  * [log](#log)
-  * [softCache](#softcache)
-  * [hardCache](#hardcache)
-  * [refreshOn](#refreshon)
+  * [log](#log--)
+  * [softCache](#softcache--)
+  * [hardCache](#hardcache--)
+  * [refreshOn](#refreshon--)
 * [Array operators](#array-operators)
-  * [arrayFilter](#arrayfilter)
-  * [arrayFind](#arrayfind)
-  * [arrayMap](#arraymap)
+  * [arrayFilter](#arrayfilter--)
+  * [arrayFind](#arrayfind--)
+  * [arrayMap](#arraymap--)
   * [Other array operators](#other-array-operators)
 * [Filtering operators](#filtering-operators)
-  * [ifEmpty](#ifempty)
-  * [ifFalsy](#iffalsy)
-  * [ifNotNull](#ifnotnull)
-  * [ifNotNulls](#ifnotnulls)
-  * [ifNull](#ifnull)
-  * [ifNulls](#ifnulls)
-  * [ifTruthy](#iftruthy)
+  * [ifEmpty](#ifempty--)
+  * [ifFalsy](#iffalsy--)
+  * [ifNotNull](#ifnotnull--)
+  * [ifNotNulls](#ifnotnulls--)
+  * [ifNull](#ifnull--)
+  * [ifNulls](#ifnulls--)
+  * [ifTruthy](#iftruthy--)
 * [Other operators](#other-operators)
-  * [countSubscription](#countsubscription)
-  * [joinArray](#joinarray)
-  * [onAny](#onany)
-  * [onError](#onerror)
-  * [poll](#poll)
-  * [sneakyThrow](#sneakythrow)
-  * [toHotArray](#tohotarray)
-  * [wif](#wif)
+  * [countSubscription](#countsubscription--)
+  * [joinArray](#joinarray--)
+  * [onAny](#onany--)
+  * [onError](#onerror--)
+  * [poll](#poll--)
+  * [sneakyThrow](#sneakythrow--)
+  * [toHotArray](#tohotarray--)
+  * [wif](#wif--)
 
 ## How to install
 
@@ -253,7 +253,7 @@ from([0, 1]).pipe(
 
 ### ifNotNull()
 
-Filters items emitted by the source Observable by only emitting non null value.
+Filters items emitted by the source Observable by only emitting non-null value.
 
 Usage :
 
