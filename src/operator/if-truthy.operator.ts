@@ -1,11 +1,11 @@
-import { filter } from 'rxjs/operators';
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import {Observable, OperatorFunction} from 'rxjs';
+import {filter} from 'rxjs/operators';
 
 /**
  * filter !!value
  */
-export function ifTruthy<I>(): MonoTypeOperatorFunction<I> {
+export function ifTruthy<I>(): OperatorFunction<NonNullable<I> | null | undefined, NonNullable<I>> {
   return (source$: Observable<I>) => source$.pipe(
-    filter((input: I) => !!input)
+    filter((input: I | null | undefined): input is NonNullable<I> => !!input)
   );
 }
